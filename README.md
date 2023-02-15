@@ -27,14 +27,11 @@ Boundary conditions: `x = X_0` & `x = X_1`; specified by the user.
 
 ## Requirements
 
-1. Compiler: `gcc/g++`.`9.4.0` was used to allow for further development in a newer standard: e.g. `C++17`.
-2. `CMake`; build generator 
-3. `ninja-build`; build tool which depends on `CMake`.
-4. `conan`. Used for package management; `fmt` and `spdlog`; https://conan.io/center/. `fmt` is used for formatting and `spdlog` is used for logging issues.
-5. `Ubuntu 20.04`.
-6. `make`.
-7. `FetchContent` is used to get the contents from of `fmt` and `spdlog` for `CMake`. It comes with `CMake`.
-8. Knowledge of `Numerical Linear Algebra`, `Numerical Differential Equations` & `Numerical Methods`.
+1. Compiler: `g++/gcc 9.4.0`
+2. Tested on `Ubuntu 20.04`
+3. Text editor: any will do; this project was developed using `Sublime Text`
+4. For testing: `cxxtest`: [CxxTest](https://cxxtest.com/)
+5. Build system: `CMake`
 
 
 ## Example models
@@ -63,17 +60,7 @@ Two `.dat` files are generated, one each corresponding to one model problem. The
 
 ## Instructions
 
-Note: Don't leave spaces between commands and prompt.
 
-1. `$ pip install conan`. Installing `conan`.
-2. `$ source ~/.profile`. Needed as the directory won't be automatically appended to the PATH and conan commands won't work.
-3. Clone the repository: `$ git clone https://github.com/MRLintern/1D_Time-Independent_BVP_Library.git`
-4. `$ make prepare`. Used to create the build library and configure `conan`
-5. `$ cd build`
-6. `$ cmake ..`
-7. `$ cmake --build .`
-8. `$ cd build`
-9. `$ ./Executable`
 
 NOTE:
 
@@ -82,11 +69,9 @@ You'll see that these have already been applied for Model 1 and Model 2 listed a
 
 ## Further Development
 
-1. Create unit tests; currently looking at using `catch2`. Consider using`GoogleTest` too. 
-2. Consider developing the software in a newer modern standard; e.g. `C++17`.
-   
-## Issues: TODO
+## TODO
 
-Software builds, compiles and runs but `.dat` solution files are not generated. 
+Currently in development
+
 
 
