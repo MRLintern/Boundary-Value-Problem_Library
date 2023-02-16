@@ -31,7 +31,7 @@ Boundary conditions: `x = X_0` & `x = X_1`; specified by the user.
 2. Tested on `Ubuntu 20.04`
 3. Text editor: any will do; this project was developed using `Sublime Text`
 4. For unit testing: [CxxTest](https://cxxtest.com/)
-5. Build system: `CMake`
+5. `make`
 
 ## Unit Testing
 
