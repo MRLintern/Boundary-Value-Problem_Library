@@ -36,7 +36,8 @@ Boundary conditions: `x = X_0` & `x = X_1`; specified by the user.
 ## Unit Testing
 
 `CxxTest` is a unit testing framework which was used to test the `LinearSystems.hpp` class and the `BvpOde.hpp` class.
-Instation:
+
+Instalation:
 
     $ sudo apt-get update -y
     $ sudo apt-get install -y cxxtest
