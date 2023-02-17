@@ -9,3 +9,6 @@ LibTest:	LinearSystemTestSuite.cpp Matrix.o Vector.o LinearSystem.o
 	
 %.o:	%.cpp %.hpp
 	g++ -g -c $<
+	
+	
+rm -f *.o *TestSuite.cpp
