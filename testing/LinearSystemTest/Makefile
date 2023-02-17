@@ -6,3 +6,6 @@ all: LibTest
 LibTest:	LinearSystemTestSuite.cpp Matrix.o Vector.o LinearSystem.o
 	g++ -g -o LinearSystemTestSuiteRunner $^\
 	&& ./LinearSystemTestSuiteRunner -v
+	
+%.o:	%.cpp %.hpp
+	g++ -g -c $<
