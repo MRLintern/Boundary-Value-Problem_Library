@@ -78,8 +78,6 @@ Two `.dat` files are generated, one each corresponding to one model problem. The
 The user has to specify the boundary/initial conditions for the problem. To do this go to `main/main.cpp`.
 You'll see that these have already been applied for Model 1 and Model 2 listed above.
 
-## Further Development
-
 ## TODO
 
 Code needs to be well documented.
