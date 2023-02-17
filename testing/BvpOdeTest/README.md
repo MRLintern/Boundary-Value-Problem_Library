@@ -1,1 +1,4 @@
+## Instructions
 
+  $ make
+  $ ./BvpOdeTestSuiteRunner
