@@ -7,4 +7,7 @@ LibTest: 	BvpOdeTestSuite.cpp BoundaryConditions.o BvpOde.o FiniteDifferenceGrid
   g++ -g -o BvpOdeTestSuiteRunner $^\
   && ./BvpOdeTestSuiteRunner -v
   
+  %.o:	%.cpp %.hpp
+	g++ -g -c $<
+  
   rm -f *.o *TestSuite.cpp
