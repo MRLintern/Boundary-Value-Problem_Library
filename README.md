@@ -79,7 +79,7 @@ You'll see that these have already been applied for Model 1 and Model 2 listed a
 
 ## TODO
 
-Currently in development
+Code needs to be well documented.
 
 
 
