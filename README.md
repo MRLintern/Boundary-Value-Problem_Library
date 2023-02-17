@@ -68,6 +68,9 @@ Two `.dat` files are generated, one each corresponding to one model problem. The
 
 ## Instructions
 
+    $ git clone https://github.com/MRLintern/Boundary-Value-Problem_Library.git
+    $ make
+    $ ./Driver
 
 
 NOTE:
