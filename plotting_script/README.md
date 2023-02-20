@@ -6,15 +6,18 @@ Python scripts for plotting results after using the library
 
     import matplotlib.pyplot as plt
     
-    X, Y = [], []
+    x, u = [], []
     
     for line in open('NAME-OF-RESULTS-FILE.dat', 'r'):
     
           values = [float(s) for s in line.split()]
-          X.append(values[0])
-          Y.append(values[1])
-          
-    plt.plot(X,Y)
+          x.append(values[0])
+          u.append(values[1])
+    
+    plt.xlabel('x')
+    plt.ylabel('u(x)')
+    plt.title('Solution to Model')
+    plt.plot(x,u)
     plt.show()
     
           
