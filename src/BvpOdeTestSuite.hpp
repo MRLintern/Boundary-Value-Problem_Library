@@ -5,7 +5,6 @@
 double model_prob_1_rhs(double x){return 1.0;}
 double model_prob_2_rhs(double x){return 34.0*sin(x);}
 
-// This suite is an example solution to Exercise 12.5
 class BvpOdeTestSuite : public CxxTest::TestSuite
 {
 private:
