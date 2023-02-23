@@ -32,6 +32,7 @@ Boundary conditions: `x = X_0` & `x = X_1`; specified by the user.
 3. Text editor: any will do; this project was developed using `Sublime Text`
 4. For unit testing: [CxxTest](https://cxxtest.com/)
 5. `make`
+6. `CMake` as an alternative to just using `make`. Go to: `src/build` for instructions.
 
 ## Unit Testing
 
@@ -81,6 +82,9 @@ You'll see that these have already been applied for Model 1 and Model 2 listed a
 ## Additions
 
 Added a Python script allowing the user to plot the results/solution of model problem.
+A `CMakeLists.txt` file has been added in the `src/build` directory. Alternative way to 
+generate the executable if you prefer a build system.
+Note: the two `.dat` data files will be generated in the `build` directory.
 
 
 ## TODO
