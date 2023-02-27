@@ -37,7 +37,7 @@ void BoundaryConditions::SetRhsDirichletBc(double rhsValue)
    mRhsBcValue = rhsValue;
 }
 
-//Initial LHS and RHS Neumann BCs
+//Initialise LHS and RHS Neumann BCs
 
 void BoundaryConditions::SetLhsNeumannBc(double lhsDerivValue)
 {
