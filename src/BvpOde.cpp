@@ -3,20 +3,22 @@
 #include <cassert>
 #include "BvpOde.hpp"
 
-BvpOde::BvpOde(SecondOrderOde* pOde, 
-               BoundaryConditions* pBcs, int numNodes)
+BvpOde::BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs, int numNodes)
 {
    mpOde = pOde;
    mpBconds = pBcs;
 
    mNumNodes = numNodes;
-   mpGrid = new FiniteDifferenceGrid(mNumNodes, pOde->mXmin, 
-                     pOde->mXmax);
+  
+   //memory allocation for discretised grid/interval
+   mpGrid = new FiniteDifferenceGrid(mNumNodes, pOde->mXmin, pOde->mXmax);
 
+   //memory allocation
    mpSolVec = new Vector(mNumNodes);
    mpRhsVec = new Vector(mNumNodes);
    mpLhsMat = new Matrix(mNumNodes, mNumNodes);
 
+   //file for resulting data
    mFilename = "ode_output.dat";
    mpLinearSystem = NULL;
 }
@@ -28,6 +30,7 @@ BvpOde::~BvpOde()
    delete mpRhsVec;
    delete mpLhsMat;
    delete mpGrid;
+  
    // Only delete if Solve has been called
    if (mpLinearSystem)
    {
@@ -37,14 +40,18 @@ BvpOde::~BvpOde()
 
 void BvpOde::Solve()
 {
+   //constructors
    PopulateMatrix();
    PopulateVector();
    ApplyBoundaryConditions();
+  
+   //memory allocation
    mpLinearSystem = new LinearSystem(*mpLhsMat, *mpRhsVec);
    *mpSolVec = mpLinearSystem->Solve();
    WriteSolutionFile();
 }
 
+//populate matrix
 void BvpOde::PopulateMatrix()
 {
    for (int i=1; i<mNumNodes-1; i++)
@@ -53,18 +60,19 @@ void BvpOde::PopulateMatrix()
       double xm = mpGrid->mNodes[i-1].coordinate;
       double x = mpGrid->mNodes[i].coordinate;
       double xp = mpGrid->mNodes[i+1].coordinate;
+     
+      //coefficients for ODE
       double alpha = 2.0/(xp-xm)/(x-xm);
       double beta = -2.0/(xp-x)/(x-xm);
       double gamma = 2.0/(xp-xm)/(xp-x);
-      (*mpLhsMat)(i+1,i) = (mpOde->mCoeffOfUxx)*alpha - 
-                      (mpOde->mCoeffOfUx)/(xp-xm);
-      (*mpLhsMat)(i+1,i+1) = (mpOde->mCoeffOfUxx)*beta + 
-                        mpOde->mCoeffOfU;
-      (*mpLhsMat)(i+1,i+2) = (mpOde->mCoeffOfUxx)*gamma + 
-                        (mpOde->mCoeffOfUx)/(xp-xm);
+     
+      (*mpLhsMat)(i+1,i) = (mpOde->mCoeffOfUxx)*alpha - (mpOde->mCoeffOfUx)/(xp-xm);
+      (*mpLhsMat)(i+1,i+1) = (mpOde->mCoeffOfUxx)*beta + mpOde->mCoeffOfU;
+      (*mpLhsMat)(i+1,i+2) = (mpOde->mCoeffOfUxx)*gamma + (mpOde->mCoeffOfUx)/(xp-xm);
    }
 }
 
+//populate the vector containing nodes of interval
 void BvpOde::PopulateVector()
 {
    for (int i=1; i<mNumNodes-1; i++)
@@ -74,11 +82,13 @@ void BvpOde::PopulateVector()
    }
 }
 
+//apply the BCs
 void BvpOde::ApplyBoundaryConditions()
 {
    bool left_bc_applied = false;
    bool right_bc_applied = false;
 
+   //Dirichlet BCs
    if (mpBconds->mLhsBcIsDirichlet)
    {
       (*mpLhsMat)(1,1) = 1.0;
@@ -92,7 +102,8 @@ void BvpOde::ApplyBoundaryConditions()
       (*mpRhsVec)(mNumNodes) = mpBconds->mRhsBcValue;
       right_bc_applied = true;
    }
-
+  
+   //Neumann BCs
    if (mpBconds->mLhsBcIsNeumann)
    {
       assert(left_bc_applied == false);
@@ -121,6 +132,7 @@ void BvpOde::ApplyBoundaryConditions()
    assert(right_bc_applied);
 }
 
+//write solution to file(s)
 void BvpOde::WriteSolutionFile()
 {
    std::ofstream output_file(mFilename.c_str());
