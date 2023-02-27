@@ -9,6 +9,8 @@ Note: if using Dirichlet BCs we can't use Neumann
 #include <cassert>
 #include "BoundaryConditions.hpp"
 
+*/
+
 //Initially BCs are not true; values will be set
 
 BoundaryConditions::BoundaryConditions()
