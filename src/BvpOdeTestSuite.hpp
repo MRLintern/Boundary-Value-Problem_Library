@@ -1,3 +1,6 @@
+//testing Boundary Value Problem library with CxxTest; make sure library runs with base example
+
+
 #include <cxxtest/TestSuite.h>
 #include <fstream>
 #include "BvpOde.hpp"
