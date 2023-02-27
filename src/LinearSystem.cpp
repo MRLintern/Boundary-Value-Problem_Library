@@ -1,3 +1,27 @@
+/*
+
+Linear system of algebraic equations can take the form:
+
+a11*x1 + a12*x2 + ... + a1n*xn = b1
+a21*x1 + a22*x2 + ... + a2n*xn = b2
+ .                 .
+ .                 .
+ .                 .
+am1*x1 + am2*x2 + ... + amn*xn = bm
+
+This is general linear system of m equations with n unknowns and coefficients
+
+amn are the coefficients, xn are the unknows/solutions to be found and bm are constants/known values
+
+As a matrix equation, this system takes the form:
+
+A*x = b
+
+*/
+
+
+//linear algebra library
+
 #include <cmath>
 #include <cassert>
 #include "LinearSystem.hpp"
@@ -30,7 +54,7 @@ LinearSystem::~LinearSystem()
 // This method changes the content of the matrix mpA
 Vector LinearSystem::Solve()
 {
-   Vector m(mSize); //See description in Appendix A
+   Vector m(mSize); 
    Vector solution(mSize);
 
    // We introduce references to make the syntax readable   
