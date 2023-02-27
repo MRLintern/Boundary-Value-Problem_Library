@@ -1,3 +1,5 @@
+//boundary value problem for ODE class
+
 #pragma once
 
 #include <string>
@@ -50,8 +52,7 @@ private:
 
 public:
    // Sole constructor
-   BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs, 
-                              int numNodes);
+   BvpOde(SecondOrderOde* pOde, BoundaryConditions* pBcs, int numNodes);
 
    // As memory is dynamically allocated the destructor
    // is overridden
