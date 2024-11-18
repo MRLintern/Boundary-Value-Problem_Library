@@ -78,7 +78,7 @@ Two `.dat` files are generated, one each corresponding to one model problem. The
 
 There is an __issue__ running the software which I need to address (at some point).
 However, the results of the models 1 & 2 have been included, so you can see what the software is meant to produce
-and then use the 
+and then use the Python script for plotting the results; see the __Plotting_Script__ folder.
 
 
 ## Note 2:
