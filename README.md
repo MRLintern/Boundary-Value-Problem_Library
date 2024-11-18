@@ -37,6 +37,7 @@ Boundary conditions: `x = X_0` & `x = X_1`; specified by the user.
 ## Unit Testing
 
 `CxxTest` is a unit testing framework which was used to test the `LinearSystems.hpp` class and the `BvpOde.hpp` class.
+If you don't have `CxxTest`, see below:
 
 Instalation:
 
@@ -73,8 +74,14 @@ Two `.dat` files are generated, one each corresponding to one model problem. The
     $ make
     $ ./Driver
 
+## Note 1:
 
-## Note:
+There is an __issue__ running the software which I need to address (at some point).
+However, the results of the models 1 & 2 have been included, so you can see what the software is meant to produce
+and then use the 
+
+
+## Note 2:
 
 The user has to specify the boundary/initial conditions for the problem. To do this go to `src/Driver.cpp`.
 You'll see that these have already been applied for Model 1 and Model 2 listed above.
